@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor ZAP 2.0</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text__center">Editor de texto para WhatsApp</h1>
+        <div class="options">
+            <button class="btn__config" onclick="addFormatting('*')">
+                <b>Negritro</b>
+            </button>
+            <button class="btn__config" onclick="addFormatting('_')">
+                <b>Itálico</b>
+            </button>
+            <button class="btn__config" onclick="addFormatting('~')">
+                <b>Riscado</b>
+            </button>
+            <button class="btn__config" onclick="addList('ul')">
+                <b>- Lista não ordenada</b>
+            </button>
+            <button class="btn__config" onclick="addList('ol')">
+                <b>1. Lista não ordenada</b>
+            </button>
+        </div>
+
+        <div class="help_text">
+            <p>
+                Para formatar o texto, selecione a parte desejada e clique nos botões acima.
+            </p>
+
+            <p>
+                Para criar uma lista, coloque cada item em uma nova linha e clique na opção desejada.
+            </p>
+        </div>
+
+        <div class="model__options">
+            <select id="modelSelector" onchange="selectModel()">
+                <option value="">Escolha um modelo</option>
+                <option value="Boas-vindas">Boas-vindas</option>
+                <option value="Ola">Olá</option>
+                <option value="Agradecimento">Agradecimento</option>
+                <option value="ConfirmacaoPedido">Confirmação de Pedido</option>
+                <option value="Promocao">Promoção</option>
+                <option value="Lembrete">Lembrete</option>
+                <option value="Despedida">Despedida</option>
+            </select>
+        </div>
+
+        <div>
+            <textarea id="inputText" placeholder="Digite o seu texto" oninput="updatePreview()"></textarea>
+        </div>
+
+        <div class="options">
+            <button id="copyText" class="btn__config" onclick="copyTextFunc()"><b>Copiar</b></button>
+            <button id="deleteText" class="btn__config" onclick="eraseText()"><b>Apagar texto</b></button>
+            <button id="addEmoji" class="btn__config" onclick="openModalEmoji()"><b>Add Emojis</b></button>
+            <button id="clearText" class="btn__config" onclick="clearFormatting()"><b>Limpar Formatação</b></button>
+        </div>
+
+        <div class="preview">
+            <h3>Pré-visualização</h3>
+            <p id="previewText"></p>
+        </div>
+    </div>
+
+    <h2>Onde me encontrar <i class="fa fa-heart"></i></h2>
+    <div class="footer"> 
+        <a href="https://github.com/mateusmoreira021" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
+        <a href="https:https://www.linkedin.com/in/mateus-moreira-5015131b0/" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+    </div>
+
+    <div id="emojiModal" class="modal__emojis">
+        <div class="modal__content">
+            <span class="close" onclick="closeModalEmoji()">&times;</span>
+            <h2>Selecione um emoji:</h2>
+            <input class="search__emoji" type="text" id="emojiSearch" placeholder="Pesquisar emoji...">
+            <div id="emojiContainer" class="emoji__container "></div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
