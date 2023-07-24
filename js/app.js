@@ -12,6 +12,8 @@ const emojiModal = document.querySelector("#emojiModal");
 const apiEmoji = "https://emoji-api.com/emojis?access_key=afbf73a432f34028d70288c21768f4195cd6e0b9";
 
 
+console.log("Esse projeto foi clonado e atualizado");
+
 const openModalEmoji = () => emojiModal.style.display = "block";
 
 const closeModalEmoji = () => emojiModal.style.display = "none";
